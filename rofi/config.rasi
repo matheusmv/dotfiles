@@ -1,0 +1,116 @@
+/*
+ *
+ * Author  : Aditya Shakya
+ * Mail    : adi1090x@gmail.com
+ * Github  : @adi1090x
+ * Twitter : @adi1090x
+ *
+ */
+
+configuration {
+	font:							"JetBrains Mono Nerd Font 12";
+    show-icons:                     true;
+	icon-theme: 					"Papirus-Light";
+    display-drun: 					"";
+    drun-display-format:            "{name}";
+    disable-history:                false;
+    fullscreen:                     false;
+	hide-scrollbar: 				true;
+	sidebar-mode: 					false;
+}
+
+@import "~/.config/polybar/scripts/rofi/colors.rasi"
+
+window {
+    background-color:               @bg;
+	border:							2;
+    padding:                        2;
+	border-color:					@bg;
+	width:							550px;
+}
+
+prompt {
+    enabled: 						true;
+	padding: 						7px 7px 2px 7px;
+	background-color: 				@ac;
+	text-color: 					@fg;
+	font:							"feather 14";
+}
+
+scrollbar {
+    width:                          4px;
+    border:                         0;
+    handle-width:                   8px;
+    handle-color:                   @ac;
+    padding:                        0;
+}
+
+entry {
+    background-color:               @bg;
+    text-color:                     @fg;
+    placeholder-color:              @fg;
+    expand:                         true;
+    horizontal-align:               0;
+    placeholder:                    "Search...";
+	padding: 						6px;
+    blink:                          true;
+}
+
+inputbar {
+	children: 						[ prompt, entry ];
+    background-color:               @bga;
+    text-color:                     @fg;
+    expand:                         false;
+	border:							0px;
+    border-radius:                  0px;
+	border-color:					@ac;
+    margin:                         0px;
+    padding:                        0px;
+}
+
+listview {
+    background-color:               @bg;
+    padding:                        0px;
+    columns:                        2;
+    lines:                          8;
+    spacing:                        6px;
+    cycle:                          true;
+    dynamic:                        true;
+    layout:                         vertical;
+}
+
+mainbox {
+    background-color:               @bg;
+    children:                       [ inputbar, listview ];
+    spacing:                       	6px;
+    padding:                        6px;
+}
+
+element {
+    orientation:                    horizontal;
+    border-radius:                  2px;
+	border:                         0;
+    padding: 						3px;
+}
+
+element.normal.normal {
+    background-color: @bga;
+    text-color: @fg;
+}
+
+element.selected.normal {
+    background-color: @ac;
+    text-color: @fg;
+}
+
+element-icon {
+    size:                           24px;
+    border:                         0px;
+}
+
+element-text {
+    expand:                         true;
+    horizontal-align:               0;
+    vertical-align:                 0.5;
+    margin:                         0px 2.5px 0px 2.5px;
+}
