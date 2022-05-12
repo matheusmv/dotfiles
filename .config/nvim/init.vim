@@ -75,6 +75,14 @@ Plug 'gruvbox-community/gruvbox' " gruvbox theme
 " https://github.com/clangd/coc-clangd
 " https://www.youtube.com/watch?v=UsgZ1V9KiUg
 
+" cmp
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'L3MON4D3/LuaSnip'
+
 " LSP
 Plug 'neovim/nvim-lspconfig'
 
@@ -156,6 +164,11 @@ nnoremap <silent> <Space>bw :BufferOrderByWindowNumber<CR>
 " ===== nvim-telescope settings =====
 
 nnoremap <leader>f :Telescope find_files disable_devicons=true<CR>
+
+
+" ===== cmp settings =====
+
+set completeopt=menu,menuone,noselect
 
 
 " ===== trim white spaces =====
