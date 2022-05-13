@@ -16,7 +16,7 @@ super + Escape
 
 # hide/show polybar
 super F1
-    $HOME/.local/bin/polybar-toggle.sh
+    polybar-msg cmd toggle
 
 #
 # bspwm hotkeys
