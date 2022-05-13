@@ -9,9 +9,8 @@ picom --experimental-backends -b
 $HOME/.config/polybar/launch.sh
 pgrep -x sxhkd > /dev/null || sxhkd &
 nitrogen --restore &
-#wmname LG3D
 dunst &
-#nm-applet &
+$HOME/.bin/arch-updates.sh &
 
 bspc monitor -d 1 2 3 4 5 6 7 8
 
@@ -24,11 +23,12 @@ bspc config split_ratio          0.50
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
-bspc rule -a jetbrains-idea-ce state=floating follow=on
+bspc rule -a jetbrains-idea-ce state=floating
 bspc rule -a Nm-connection-editor state=floating follow=on
 bspc rule -a Pavucontrol state=floating follow=on
-bspc rule -a Lutris state=floating follow=on
-bspc rule -a VirtualBox Manager state=floating follow=on
-bspc rule -a Gimp-2.10 desktop='^3' state=floating follow=on
+bspc rule -a Lutris state=floating
+bspc rule -a VirtualBox Manager state=floating
+bspc rule -a Gimp-2.10 desktop='^3' state=floating
+bspc rule -a vlc state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
