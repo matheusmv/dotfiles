@@ -1,14 +1,15 @@
 @import "themes/gruvbox-dark.rasi"
 
-configuration {
-    display-drun: "";
+* {
+    scrollbar: false;
 }
 
 window {
     background-color: @background;
     border:           2;
     padding:          2;
-    width:            650px;
+    width:            300px;
+    height:           160px;
 }
 
 mainbox {
@@ -16,30 +17,20 @@ mainbox {
     padding: 0;
 }
 
-message {
-    border:       2px 0 0;
-    border-color: @separatorcolor;
-    padding:      1px;
-}
-
-textbox {
-    highlight:  @highlight;
-    text-color: @foreground;
-}
-
 listview {
     border:       2px solid 0 0;
     padding:      2px 0 0;
     border-color: @separatorcolor;
     spacing:      2px;
-    scrollbar:    @scrollbar;
-    lines:        8;
-    columns:      2;
 }
 
 element {
     border:  0;
     padding: 2px;
+}
+
+element-text {
+    text-color: @normal-foreground;
 }
 
 element.normal.normal {
@@ -87,52 +78,14 @@ element.alternate.active {
     text-color:       @alternate-active-foreground;
 }
 
-scrollbar {
-    width:        4px;
-    border:       0;
-    handle-color: @scrollbar-handle;
-    handle-width: 8px;
-    padding:      0;
-}
-
-sidebar {
-    border:       2px 0 0;
-    border-color: @separatorcolor;
-}
-
 inputbar {
     spacing:    0;
     text-color: @normal-foreground;
     padding:    2px;
-    children:   [ prompt, textbox-prompt-sep, entry, case-indicator ];
-}
-
-case-indicator,
-entry,
-prompt,
-button {
-    spacing:    0;
-    text-color: @normal-foreground;
+    children:   [ prompt ];
 }
 
 prompt {
-    padding: 7px 7px 2px 7px;
-    font:    "feather 14";
-}
-
-entry {
-    placeholder: "Search...";
-    padding:     6px;
-}
-
-button.selected {
-    background-color: @selected-normal-background;
-    text-color:       @selected-normal-foreground;
-}
-
-textbox-prompt-sep {
-    expand:     false;
-    str:        "";
+    spacing:    0;
     text-color: @normal-foreground;
-    margin:     0;
 }

@@ -1,0 +1,18 @@
+@import "themes/gruvbox-dark.rasi"
+
+* {
+    text-color: @normal-foreground;
+}
+
+window {
+    background-color: @background;
+    border:           0px 0px 4px 0px;
+    border-color:     @active-background;
+    padding:          25px;
+    width:            300px;
+}
+
+entry {
+    expand: 				true;
+    text-color:				@active-background;
+}
