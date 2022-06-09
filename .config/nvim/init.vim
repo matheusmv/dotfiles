@@ -80,6 +80,9 @@ call plug#begin()
     Plug 'romgrk/barbar.nvim'
     Plug 'kyazdani42/nvim-web-devicons'
 
+    " indentLine
+    Plug 'https://github.com/Yggdroot/indentLine'
+
     " nvim-telescope
     Plug 'nvim-telescope/telescope.nvim'
     Plug 'nvim-lua/plenary.nvim'
@@ -195,6 +198,19 @@ nnoremap <silent>    <A-p> :BufferPin<CR>
 
 " Close buffer
 nnoremap <silent>    <A-c> :BufferClose<CR>
+
+" ****************************************************************************
+" *** indentLine settings
+" ****************************************************************************
+
+let g:indentLine_enabled = 1
+let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+
+let g:indentLine_leadingSpaceEnabled = 1
+let g:indentLine_leadingSpaceChar = '·'
+
+" Toggle line indentation.
+nnoremap <F3> :IndentLinesToggle<CR>
 
 
 " ****************************************************************************
