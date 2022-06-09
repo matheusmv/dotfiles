@@ -4,6 +4,7 @@ xinput --set-prop 'pointer:''Kingston HyperX Pulsefire Core' 'libinput Accel Pro
 xinput --set-prop 'pointer:''Kingston HyperX Pulsefire Core' 'libinput Accel Speed' 0
 
 xrandr --output HDMI-0 --mode 2560x1080 --rate 75
+xset s off -dpms
 
 picom --experimental-backends -b
 $HOME/.config/polybar/launch.sh
@@ -23,12 +24,12 @@ bspc config split_ratio          0.50
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
-bspc rule -a jetbrains-idea-ce state=floating
+bspc rule -a jetbrains-idea-ce state=floating follow=off
 bspc rule -a Nm-connection-editor state=floating follow=on
 bspc rule -a Pavucontrol state=floating follow=on
-bspc rule -a Lutris state=floating
-bspc rule -a VirtualBox Manager state=floating
-bspc rule -a Gimp-2.10 desktop='^3' state=floating
+bspc rule -a Lutris state=floating follow=off
+bspc rule -a VirtualBox Manager state=floating follow=off
+bspc rule -a Gimp-2.10 desktop='^3' state=floating follow=off
 bspc rule -a vlc state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
