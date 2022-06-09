@@ -1,4 +1,6 @@
-" ===== neovim configs =====
+" ****************************************************************************
+" *** Configs
+" ****************************************************************************
 
 :set path+=**
 
@@ -49,84 +51,134 @@
 ":set undofile
 
 
-" ===== plugins =====
+" ****************************************************************************
+" *** Plugins
+" ****************************************************************************
 
 call plug#begin()
 
-" https://github.com/junegunn/vim-plug
-" Reload init.vim and :PlugInstall to install plugins.
+    " vim-airline
+    Plug 'https://github.com/vim-airline/vim-airline'
+    Plug 'https://github.com/vim-airline/vim-airline-themes'
 
-Plug 'https://github.com/vim-airline/vim-airline' " vim-airline
-Plug 'https://github.com/preservim/nerdtree'      " nerdtree
-Plug 'https://github.com/ryanoasis/vim-devicons'  " vim-devicons
-Plug 'https://github.com/cohama/lexima.vim'       " lexima autoclose {,(...
-"Plug 'https://github.com/airblade/vim-gitgutter'  " vim-gitgutter
+    " nerdtree
+    Plug 'https://github.com/preservim/nerdtree'
 
-Plug 'kyazdani42/nvim-web-devicons' " required for barbar
-Plug 'romgrk/barbar.nvim' " barbar
+    " vim-devicons
+    Plug 'https://github.com/ryanoasis/vim-devicons'
 
-Plug 'nvim-lua/plenary.nvim' " required for nvim-telescope
-Plug 'nvim-telescope/telescope.nvim' " nvim-telescope
+    " lexima
+    Plug 'https://github.com/cohama/lexima.vim'
 
-Plug 'gruvbox-community/gruvbox' " gruvbox theme
+    " vim-fugitive
+    Plug 'https://github.com/tpope/vim-fugitive'
 
-" check later
-" https://github.com/josa42/coc-go
-" https://github.com/clangd/coc-clangd
-" https://www.youtube.com/watch?v=UsgZ1V9KiUg
+    " vim-gitgutter
+    Plug 'https://github.com/airblade/vim-gitgutter'
 
-" cmp
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/cmp-cmdline'
-Plug 'hrsh7th/nvim-cmp'
-Plug 'L3MON4D3/LuaSnip'
+    " barbar
+    Plug 'romgrk/barbar.nvim'
+    Plug 'kyazdani42/nvim-web-devicons'
 
-" LSP
-Plug 'neovim/nvim-lspconfig'
+    " nvim-telescope
+    Plug 'nvim-telescope/telescope.nvim'
+    Plug 'nvim-lua/plenary.nvim'
+
+    " gruvbox theme
+    Plug 'gruvbox-community/gruvbox'
+
+    " cmp
+    Plug 'hrsh7th/cmp-nvim-lsp'
+    Plug 'hrsh7th/cmp-buffer'
+    Plug 'hrsh7th/cmp-path'
+    Plug 'hrsh7th/cmp-cmdline'
+    Plug 'hrsh7th/nvim-cmp'
+    Plug 'L3MON4D3/LuaSnip'
+
+    " lsp
+    Plug 'neovim/nvim-lspconfig'
 
 call plug#end()
-
-" ===== lua.init =====
 
 :lua require('matheusmv.init')
 
 
-" ===== colors & themes =====
+" ****************************************************************************
+" *** Colors & Themes
+" ****************************************************************************
 
 colorscheme gruvbox
 highlight Normal ctermbg=none
 highlight NonText ctermbg=none
 
 
-" ===== key-maps & settings =====
+" ****************************************************************************
+" *** Maps & Settings
+" ****************************************************************************
 
 let mapleader = "\<space>"
 
+" Save file
+nnoremap <leader>w :w<CR>
 
-" ===== vim-airline settings =====
+" Move between buffers
+nmap <leader>l :bnext<CR>
+nmap <leader>h :bprevious<CR>
+
+" Relative numbering
+fun! NumberToggle()
+    if (&relativenumber == 1)
+        set nornu
+        set number
+    else
+        set rnu
+    endif
+endfun
+
+" Toggle between normal and relative numbering.
+nnoremap <leader>r :call NumberToggle()<CR>
+
+" ****************************************************************************
+" *** vim-airline settings
+" ****************************************************************************
+
+let g:airline_theme= 'gruvbox'
 
 let g:airline_powerline_fonts = 1
 
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
 
-" ===== nerdtree settings =====
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.maxlinenr = ''
+let g:airline_symbols.notexists = '∄'
+let g:airline_symbols.whitespace = 'Ξ'
+
+
+" ****************************************************************************
+" *** nerdtree settings
+" ****************************************************************************
 
 nnoremap <leader>d :NERDTreeFocus<CR>
 nnoremap <leader>d :NERDTreeToggle<CR>
 
-"let g:NERDTreeDirArrowExpandable = '+'
-"let g:NERDTreeDirArrowCollapsible = '-'
 
-
-" ===== barbar settings =====
+" ****************************************************************************
+" *** barbar settings
+" ****************************************************************************
 
 " Move to previous/next
 nnoremap <silent>    <A-,> :BufferPrevious<CR>
 nnoremap <silent>    <A-.> :BufferNext<CR>
+
 " Re-order to previous/next
 nnoremap <silent>    <A-<> :BufferMovePrevious<CR>
 nnoremap <silent>    <A->> :BufferMoveNext<CR>
+
 " Goto buffer in position...
 nnoremap <silent>    <A-1> :BufferGoto 1<CR>
 nnoremap <silent>    <A-2> :BufferGoto 2<CR>
@@ -137,41 +189,31 @@ nnoremap <silent>    <A-6> :BufferGoto 6<CR>
 nnoremap <silent>    <A-7> :BufferGoto 7<CR>
 nnoremap <silent>    <A-8> :BufferGoto 8<CR>
 nnoremap <silent>    <A-9> :BufferLast<CR>
+
 " Pin/unpin buffer
 nnoremap <silent>    <A-p> :BufferPin<CR>
+
 " Close buffer
 nnoremap <silent>    <A-c> :BufferClose<CR>
-" Wipeout buffer
-"                          :BufferWipeout<CR>
-" Close commands
-"                          :BufferCloseAllButCurrent<CR>
-"                          :BufferCloseAllButPinned<CR>
-"                          :BufferCloseBuffersLeft<CR>
-"                          :BufferCloseBuffersRight<CR>
-" Magic buffer-picking mode
-nnoremap <silent> <C-s>    :BufferPick<CR>
-" Sort automatically by...
-nnoremap <silent> <Space>bb :BufferOrderByBufferNumber<CR>
-nnoremap <silent> <Space>bd :BufferOrderByDirectory<CR>
-nnoremap <silent> <Space>bl :BufferOrderByLanguage<CR>
-nnoremap <silent> <Space>bw :BufferOrderByWindowNumber<CR>
-
-" Other:
-" :BarbarEnable - enables barbar (enabled by default)
-" :BarbarDisable - very bad command, should never be used
 
 
-" ===== nvim-telescope settings =====
+" ****************************************************************************
+" *** telescope settings
+" ****************************************************************************
 
 nnoremap <leader>f :Telescope find_files disable_devicons=true<CR>
 
 
-" ===== cmp settings =====
+" ****************************************************************************
+" *** cmp settings
+" ****************************************************************************
 
 set completeopt=menu,menuone,noselect
 
 
-" ===== trim white spaces =====
+" ****************************************************************************
+" *** trim white spaces
+" ****************************************************************************
 
 fun! TrimWhitespace()
     let l:save = winsaveview()
@@ -179,7 +221,7 @@ fun! TrimWhitespace()
     call winrestview(l:save)
 endfun
 
-augroup ARCHX64
+augroup MATHEUSMV
     autocmd!
     autocmd BufWritePre * :call TrimWhitespace()
 augroup END
