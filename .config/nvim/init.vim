@@ -45,7 +45,6 @@
 
 :set inccommand=split " %s/word/new-word/g
 
-" History (check later)
 :set noswapfile
 :set nobackup
 :set undodir=~/.vim/undodir
@@ -142,6 +141,7 @@ endfun
 " Toggle between normal and relative numbering.
 nnoremap <leader>r :call NumberToggle()<CR>
 
+
 " ****************************************************************************
 " *** vim-airline settings
 " ****************************************************************************
@@ -201,6 +201,7 @@ nnoremap <silent>    <A-p> :BufferPin<CR>
 
 " Close buffer
 nnoremap <silent>    <A-c> :BufferClose<CR>
+
 
 " ****************************************************************************
 " *** indentLine settings
