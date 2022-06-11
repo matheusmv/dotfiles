@@ -20,6 +20,7 @@
 :set autoindent
 
 :autocmd Filetype c setlocal tabstop=8 shiftwidth=8 softtabstop=8
+:autocmd BufRead,BufNewFile *.h,*.c set filetype=c
 :autocmd Filetype go setlocal tabstop=8 shiftwidth=8 softtabstop=8
 
 :set tabstop=4
@@ -45,10 +46,10 @@
 :set inccommand=split " %s/word/new-word/g
 
 " History (check later)
-":set noswapfile
-":set nobackup
-":set undodir=~/.vim/undodir
-":set undofile
+:set noswapfile
+:set nobackup
+:set undodir=~/.vim/undodir
+:set undofile
 
 
 " ****************************************************************************
@@ -64,8 +65,9 @@ call plug#begin()
     " nerdtree
     Plug 'https://github.com/preservim/nerdtree'
 
-    " vim-devicons
-    Plug 'https://github.com/ryanoasis/vim-devicons'
+    " devicons
+    "Plug 'https://github.com/ryanoasis/vim-devicons'
+    Plug 'kyazdani42/nvim-web-devicons'
 
     " lexima
     Plug 'https://github.com/cohama/lexima.vim'
@@ -78,7 +80,6 @@ call plug#begin()
 
     " barbar
     Plug 'romgrk/barbar.nvim'
-    Plug 'kyazdani42/nvim-web-devicons'
 
     " indentLine
     Plug 'https://github.com/Yggdroot/indentLine'
@@ -166,8 +167,10 @@ let g:airline_symbols.whitespace = 'Ξ'
 " *** nerdtree settings
 " ****************************************************************************
 
-nnoremap <leader>d :NERDTreeFocus<CR>
 nnoremap <leader>d :NERDTreeToggle<CR>
+
+let NERDTreeNaturalSort = 1
+let NERDTreeRespectWildIgnore = 1
 
 
 " ****************************************************************************
@@ -217,7 +220,7 @@ nnoremap <F3> :IndentLinesToggle<CR>
 " *** telescope settings
 " ****************************************************************************
 
-nnoremap <leader>f :Telescope find_files disable_devicons=true<CR>
+nnoremap <leader>f :Telescope find_files theme=dropdown<CR>
 
 
 " ****************************************************************************
