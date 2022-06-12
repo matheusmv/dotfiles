@@ -41,7 +41,7 @@
 :set signcolumn=yes
 :set colorcolumn=80
 :set cmdheight=1
-:set encoding=UTF-8
+:set encoding=utf-8
 
 :set inccommand=split " %s/word/new-word/g
 
@@ -49,6 +49,8 @@
 :set nobackup
 :set undodir=~/.vim/undodir
 :set undofile
+
+:set updatetime=300
 
 
 " ****************************************************************************
@@ -123,6 +125,12 @@ let mapleader = "\<space>"
 
 " Save file
 nnoremap <leader>w :w<CR>
+
+" Remap Ctrl+c to Esc
+nmap <C-c> <esc>
+imap <C-c> <esc>
+vmap <C-c> <esc>
+omap <C-c> <esc>
 
 " Move between buffers
 nmap <leader>l :bnext<CR>
