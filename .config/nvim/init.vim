@@ -45,10 +45,9 @@
 
 :set inccommand=split " %s/word/new-word/g
 
-:set noswapfile
-:set nobackup
+:set backupdir=~/.vim/backupdir
+:set directory=~/.vim/swapdir
 :set undodir=~/.vim/undodir
-:set undofile
 
 :set updatetime=300
 
