@@ -30,6 +30,9 @@
 :set smartindent
 :set nowrap
 
+:set ignorecase
+:set smartcase
+
 :set guicursor=
 :set nohlsearch
 :set hidden
@@ -147,6 +150,14 @@ endfun
 
 " Toggle between normal and relative numbering.
 nnoremap <leader>r :call NumberToggle()<CR>
+
+" Disable arrow keys
+for key in [ '<Up>', '<Down>', '<Left>', '<Right>' ]
+    exec 'nnoremap' key '<Nop>'
+    exec 'vnoremap' key '<Nop>'
+    exec 'inoremap' key '<Nop>'
+    exec 'cnoremap' key '<Nop>'
+endfor
 
 
 " ****************************************************************************
