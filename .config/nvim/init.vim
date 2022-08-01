@@ -48,7 +48,8 @@
 
 :set inccommand=split " %s/word/new-word/g
 
-:set backupdir=~/.vim/backupdir
+:set nobackup
+:set nowritebackup
 :set directory=~/.vim/swapdir
 :set undodir=~/.vim/undodir
 
@@ -172,13 +173,13 @@ if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
 
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.maxlinenr = ''
-let g:airline_symbols.notexists = '∄'
-let g:airline_symbols.whitespace = 'Ξ'
+"let g:airline_left_sep = ''
+"let g:airline_left_alt_sep = ''
+"let g:airline_right_sep = ''
+"let g:airline_right_alt_sep = ''
+"let g:airline_symbols.maxlinenr = ''
+"let g:airline_symbols.notexists = '∄'
+"let g:airline_symbols.whitespace = 'Ξ'
 
 
 " ****************************************************************************
