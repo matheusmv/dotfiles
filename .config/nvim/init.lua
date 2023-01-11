@@ -59,7 +59,7 @@ require('packer').startup(function(use)
   use 'nvim-tree/nvim-tree.lua'
 
   -- bufferline
-  use {'akinsho/bufferline.nvim', tag = "v3.*", requires = { 'nvim-tree/nvim-web-devicons' } }
+  use { 'akinsho/bufferline.nvim', tag = "v3.*", requires = { 'nvim-tree/nvim-web-devicons' } }
 
   -- Fuzzy Finder (files, lsp, etc)
   use { 'nvim-telescope/telescope.nvim', branch = '0.1.x', requires = { 'nvim-lua/plenary.nvim' } }
@@ -207,7 +207,7 @@ end
 local trim_whitespaces_group = vim.api.nvim_create_augroup('TrimNvim', { clear = true })
 vim.api.nvim_create_autocmd('BufWritePre', {
   callback = function()
-    trimmer({[[%s/\s\+$//e]]})
+    trimmer({ [[%s/\s\+$//e]] })
   end,
   group = trim_whitespaces_group,
   pattern = '*',
@@ -219,7 +219,21 @@ vim.keymap.set('n', '<leader>d', ':NvimTreeToggle<CR>')
 require('nvim-tree').setup()
 
 -- Enable bufferline
-require('bufferline').setup()
+require('bufferline').setup {
+  options = {
+    diagnostics = 'nvim_lsp',
+    offsets = {
+      {
+        filetype = 'NvimTree',
+        text = 'File Explorer',
+        highlight = 'Directory',
+        text_align = 'center',
+        separator = true
+      },
+    },
+    color_icons = true,
+  },
+}
 
 -- Set lualine as statusline
 -- See `:help lualine.txt`
