@@ -24,6 +24,7 @@ require("matheusmv.util").set_nvim("opt", {
     inccommand = "split",
     ignorecase = true,
     smartcase = true,
+    clipboard = "unnamedplus"
 }, function(prop, option, value)
     prop[option] = value
 end)

@@ -15,7 +15,8 @@ require("packer").startup(function(use)
         requires = {
             'williamboman/mason.nvim',
             'williamboman/mason-lspconfig.nvim',
-            'j-hui/fidget.nvim',
+            -- 'jose-elias-alvarez/null-ls.nvim',
+            { 'j-hui/fidget.nvim', tag = 'legacy' },
             'folke/neodev.nvim',
         },
     }
